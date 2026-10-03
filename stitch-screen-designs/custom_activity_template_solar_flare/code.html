@@ -1,0 +1,243 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Custom Activity Template - System Terminal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Archivo+Narrow:wght@400;500&amp;family=JetBrains+Mono:wght@700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#454747",
+                        "surface-container": "#201f1f",
+                        "inverse-surface": "#e5e2e1",
+                        "on-secondary-container": "#b4b5b5",
+                        "tertiary-fixed": "#e4e2e1",
+                        "on-tertiary-container": "#4e4e4e",
+                        "error-container": "#93000a",
+                        "error": "#ffb4ab",
+                        "on-secondary": "#2f3131",
+                        "surface-container-highest": "#353534",
+                        "on-error": "#690005",
+                        "on-surface-variant": "#d7c4ac",
+                        "on-primary-container": "#6a4700",
+                        "inverse-on-surface": "#313030",
+                        "surface-container-lowest": "#0e0e0e",
+                        "background": "#131313",
+                        "on-primary-fixed-variant": "#614000",
+                        "primary-fixed": "#ffddaf",
+                        "on-primary-fixed": "#281800",
+                        "primary-container": "#ffb000",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "on-primary": "#432c00",
+                        "on-surface": "#e5e2e1",
+                        "surface": "#131313",
+                        "secondary-fixed-dim": "#c6c6c7",
+                        "surface-dim": "#131313",
+                        "on-tertiary-fixed-variant": "#474746",
+                        "primary-fixed-dim": "#ffba43",
+                        "tertiary": "#dddbda",
+                        "surface-variant": "#353534",
+                        "outline": "#9f8e78",
+                        "secondary-fixed": "#e2e2e2",
+                        "surface-bright": "#3a3939",
+                        "surface-container-low": "#1c1b1b",
+                        "outline-variant": "#524533",
+                        "on-error-container": "#ffdad6",
+                        "secondary": "#c6c6c7",
+                        "tertiary-container": "#c1bfbf",
+                        "tertiary-fixed-dim": "#c8c6c5",
+                        "surface-container-high": "#2a2a2a",
+                        "secondary-container": "#454747",
+                        "on-background": "#e5e2e1",
+                        "inverse-primary": "#805600",
+                        "primary": "#ffd597",
+                        "surface-tint": "#ffba43",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "on-tertiary": "#303030"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px",
+                        "unit": "4px",
+                        "container-max": "1440px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Anton"],
+                        "body-md": ["Archivo Narrow"],
+                        "headline-xl": ["Anton"],
+                        "body-lg": ["Archivo Narrow"],
+                        "stat-value": ["Anton"],
+                        "headline-lg": ["Anton"],
+                        "headline-md": ["Anton"],
+                        "label-caps": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["32px", { "lineHeight": "32px", "letterSpacing": "0.02em", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+                        "headline-xl": ["72px", { "lineHeight": "72px", "letterSpacing": "0.02em", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "26px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "stat-value": ["40px", { "lineHeight": "40px", "letterSpacing": "0.02em", "fontWeight": "400" }],
+                        "headline-lg": ["48px", { "lineHeight": "48px", "letterSpacing": "0.02em", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "28px", "letterSpacing": "0.05em", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.15em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #0A0A0A; } /* Obsidian Base */
+        .glass-panel { background: rgba(26, 26, 26, 0.95); border: 1px solid rgba(221, 219, 218, 0.1); } /* Iron Grey Surface */
+        .glow-active { box-shadow: 0 0 15px rgba(255, 176, 0, 0.4); border-color: #FFB000; }
+        .input-base { background: transparent; border: none; border-bottom: 1px solid #524533; border-radius: 0; outline: none; }
+        .input-base:focus { border-bottom-color: #FFB000; box-shadow: 0 1px 0 0 #FFB000; }
+        .tier-radio:checked + label { background-color: #FFB000; color: #131313; border-color: #FFB000; }
+        .icon-radio:checked + label { border-color: #FFB000; color: #FFB000; }
+    </style>
+</head>
+<body class="text-on-background min-h-screen flex flex-col font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface flex justify-between items-center w-full px-4 md:px-margin-desktop py-unit h-16 border-b border-surface-variant dark:border-surface-variant docked full-width top-0 z-50">
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant dark:text-on-surface-variant hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<h1 class="text-headline-md font-headline-md font-bold text-primary dark:text-primary tracking-widest uppercase">System Terminal</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant dark:text-on-surface-variant hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-[24px]">settings</span>
+</button>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8 mb-24 md:mb-8">
+<div class="mb-8">
+<h2 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg-mobile md:font-headline-lg text-inverse-surface uppercase mb-2">Initialize Activity Protocol</h2>
+<p class="text-body-md font-body-md text-on-surface-variant">Configure parameters for custom performance tracking template.</p>
+</div>
+<form class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Core Parameters Panel -->
+<div class="glass-panel p-6 md:col-span-8 flex flex-col gap-8">
+<div class="flex justify-between items-center border-b border-surface-variant pb-4">
+<h3 class="text-label-caps font-label-caps text-secondary uppercase tracking-widest">Core Parameters</h3>
+<label class="flex items-center cursor-pointer gap-2">
+<span class="text-label-caps font-label-caps text-on-surface-variant uppercase">Designate Priority</span>
+<div class="relative">
+<input class="sr-only group peer" type="checkbox">
+<div class="w-10 h-6 bg-surface-variant rounded-full peer peer-checked:after:translate-x-full peer-checked:bg-primary-container after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
+</div>
+</label>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-label-caps font-label-caps text-primary-fixed-dim uppercase" for="activity-name">Designation (Activity Name)</label>
+<input class="input-base w-full py-2 text-body-lg font-body-lg text-inverse-surface placeholder-outline-variant focus:ring-0" id="activity-name" placeholder="e.g. Sub-Orbital Calibration" type="text">
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="text-label-caps font-label-caps text-primary-fixed-dim uppercase" for="category">Sector (Category)</label>
+<select class="input-base w-full py-2 text-body-lg font-body-lg text-inverse-surface focus:ring-0 appearance-none bg-surface-container" id="category">
+<option value="">Select Sector...</option>
+<option value="physical">Physical Conditioning</option>
+<option value="mental">Cognitive Load</option>
+<option value="recovery">System Recovery</option>
+<option value="utility">Utility / Maintenance</option>
+</select>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-label-caps font-label-caps text-primary-fixed-dim uppercase" for="attribute">Primary Attribute</label>
+<select class="input-base w-full py-2 text-body-lg font-body-lg text-inverse-surface focus:ring-0 appearance-none bg-surface-container" id="attribute">
+<option value="">Select Attribute...</option>
+<option value="str">Strength (STR)</option>
+<option value="end">Endurance (END)</option>
+<option value="int">Intelligence (INT)</option>
+<option value="foc">Focus (FOC)</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Experience Matrix Panel -->
+<div class="glass-panel p-6 md:col-span-4 flex flex-col gap-6">
+<div class="border-b border-surface-variant pb-4">
+<h3 class="text-label-caps font-label-caps text-secondary uppercase tracking-widest">Experience Matrix</h3>
+</div>
+<div class="flex flex-col gap-3">
+<p class="text-label-caps font-label-caps text-primary-fixed-dim uppercase mb-1">Yield Tier</p>
+<div class="relative">
+<input class="tier-radio sr-only" id="tier_quick" name="xp_tier" type="radio" value="10">
+<label class="block w-full p-3 border border-surface-variant text-center cursor-pointer transition-colors hover:border-outline" for="tier_quick">
+<span class="block text-body-md font-body-md uppercase tracking-wider">Quick Task</span>
+<span class="block text-stat-value font-stat-value mt-1">+10 XP</span>
+</label>
+</div>
+<div class="relative">
+<input checked="" class="tier-radio sr-only" id="tier_focused" name="xp_tier" type="radio" value="25">
+<label class="block w-full p-3 border border-surface-variant text-center cursor-pointer transition-colors hover:border-outline" for="tier_focused">
+<span class="block text-body-md font-body-md uppercase tracking-wider">Focused Effort</span>
+<span class="block text-stat-value font-stat-value mt-1">+25 XP</span>
+</label>
+</div>
+<div class="relative">
+<input class="tier-radio sr-only" id="tier_major" name="xp_tier" type="radio" value="400">
+<label class="block w-full p-3 border border-surface-variant text-center cursor-pointer transition-colors hover:border-outline" for="tier_major">
+<span class="block text-body-md font-body-md uppercase tracking-wider">Major Operation</span>
+<span class="block text-stat-value font-stat-value mt-1">+400 XP</span>
+</label>
+</div>
+</div>
+</div>
+<!-- Iconography Selection -->
+<div class="glass-panel p-6 md:col-span-12 flex flex-col gap-6 mt-4">
+<div class="border-b border-surface-variant pb-4">
+<h3 class="text-label-caps font-label-caps text-secondary uppercase tracking-widest">Visual Identifier</h3>
+</div>
+<div class="grid grid-cols-4 md:grid-cols-8 gap-4">
+<!-- Icon options -->
+<div>
+<input checked="" class="icon-radio sr-only" id="icon_bolt" name="icon_select" type="radio">
+<label class="flex items-center justify-center h-16 w-full border border-surface-variant cursor-pointer hover:border-outline transition-colors text-on-surface-variant" for="icon_bolt">
+<span class="material-symbols-outlined text-[32px]">bolt</span>
+</label>
+</div>
+<div>
+<input class="icon-radio sr-only" id="icon_fitness" name="icon_select" type="radio">
+<label class="flex items-center justify-center h-16 w-full border border-surface-variant cursor-pointer hover:border-outline transition-colors text-on-surface-variant" for="icon_fitness">
+<span class="material-symbols-outlined text-[32px]">fitness_center</span>
+</label>
+</div>
+<div>
+<input class="icon-radio sr-only" id="icon_brain" name="icon_select" type="radio">
+<label class="flex items-center justify-center h-16 w-full border border-surface-variant cursor-pointer hover:border-outline transition-colors text-on-surface-variant" for="icon_brain">
+<span class="material-symbols-outlined text-[32px]">psychology</span>
+</label>
+</div>
+<div>
+<input class="icon-radio sr-only" id="icon_book" name="icon_select" type="radio">
+<label class="flex items-center justify-center h-16 w-full border border-surface-variant cursor-pointer hover:border-outline transition-colors text-on-surface-variant" for="icon_book">
+<span class="material-symbols-outlined text-[32px]">menu_book</span>
+</label>
+</div>
+</div>
+</div>
+<!-- Action Area -->
+<div class="md:col-span-12 mt-8 flex justify-end gap-4">
+<button class="px-8 py-3 border-2 border-inverse-surface text-inverse-surface text-label-caps font-label-caps uppercase tracking-widest hover:bg-surface-variant transition-colors" type="button">Abort</button>
+<button class="px-8 py-3 bg-primary-container text-surface-lowest text-label-caps font-label-caps uppercase tracking-widest hover:bg-primary transition-colors" type="submit">Commit Protocol</button>
+</div>
+</form>
+</main>
+<!-- BottomNavBar (Hidden on MD up based on prompt implied flow, but included for complete Shared Component translation if this were considered a top level, though it's a form. Suppressing shell per instructions for transactional pages.) -->
+<!-- Suppressed navigation shell for task-focused / transactional intent -->
+</body></html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>REALLIFE XP - Starter Activities</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Archivo+Narrow:wght@400;500&amp;family=JetBrains+Mono:wght@700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#524533",
+                        "inverse-on-surface": "#313030",
+                        "surface": "#131313",
+                        "surface-container": "#201f1f",
+                        "on-primary-fixed-variant": "#614000",
+                        "surface-container-low": "#1c1b1b",
+                        "on-error": "#690005",
+                        "surface-container-highest": "#353534",
+                        "inverse-primary": "#805600",
+                        "surface-tint": "#ffba43",
+                        "outline": "#9f8e78",
+                        "on-secondary-container": "#b4b5b5",
+                        "primary": "#ffd597",
+                        "primary-fixed": "#ffddaf",
+                        "tertiary-fixed-dim": "#c8c6c5",
+                        "primary-fixed-dim": "#ffba43",
+                        "tertiary-container": "#c1bfbf",
+                        "primary-container": "#ffb000",
+                        "surface-container-high": "#2a2a2a",
+                        "on-tertiary-fixed-variant": "#474746",
+                        "background": "#131313",
+                        "on-primary": "#432c00",
+                        "on-primary-fixed": "#281800",
+                        "on-surface-variant": "#d7c4ac",
+                        "on-background": "#e5e2e1",
+                        "error-container": "#93000a",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "secondary-container": "#454747",
+                        "on-surface": "#e5e2e1",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "secondary": "#c6c6c7",
+                        "tertiary": "#dddbda",
+                        "tertiary-fixed": "#e4e2e1",
+                        "on-primary-container": "#6a4700",
+                        "on-tertiary": "#303030",
+                        "inverse-surface": "#e5e2e1",
+                        "secondary-fixed": "#e2e2e2",
+                        "on-tertiary-container": "#4e4e4e",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-variant": "#353534",
+                        "on-secondary-fixed-variant": "#454747",
+                        "surface-dim": "#131313",
+                        "secondary-fixed-dim": "#c6c6c7",
+                        "error": "#ffb4ab",
+                        "on-secondary": "#2f3131",
+                        "surface-bright": "#3a3939"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "margin-mobile": "20px",
+                        "container-max": "1440px",
+                        "gutter": "16px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-lg": ["Anton"],
+                        "body-lg": ["Archivo Narrow"],
+                        "headline-lg-mobile": ["Anton"],
+                        "headline-md": ["Anton"],
+                        "stat-value": ["Anton"],
+                        "headline-xl": ["Anton"],
+                        "body-md": ["Archivo Narrow"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.15em", "fontWeight": "700" }],
+                        "headline-lg": ["48px", { "lineHeight": "48px", "letterSpacing": "0.02em", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "26px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "32px", "letterSpacing": "0.02em", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "28px", "letterSpacing": "0.05em", "fontWeight": "400" }],
+                        "stat-value": ["40px", { "lineHeight": "40px", "letterSpacing": "0.02em", "fontWeight": "400" }],
+                        "headline-xl": ["72px", { "lineHeight": "72px", "letterSpacing": "0.02em", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #0A0A0A; }
+        .glow-active { box-shadow: 0 0 12px 2px rgba(255, 176, 0, 0.6); }
+        .activity-card { transition: all 0.2s ease-in-out; }
+        .activity-card:hover { border-color: #FFB000; box-shadow: 0 0 8px 1px rgba(255, 176, 0, 0.3); }
+        .activity-card.selected { border-color: #FFB000; background-color: rgba(255, 176, 0, 0.05); box-shadow: inset 0 0 0 1px #FFB000, 0 0 12px 2px rgba(255, 176, 0, 0.4); }
+    </style>
+</head>
+<body class="text-on-background min-h-screen flex flex-col font-body-md overflow-x-hidden">
+<!-- Progress Indicator -->
+<div class="w-full bg-surface-container-lowest h-1 fixed top-0 z-50">
+<div class="h-full bg-primary-container w-[75%] transition-all duration-500 relative" style="background: linear-gradient(90deg, #FFB000 0%, #FFD700 100%);">
+<div class="absolute right-0 top-0 bottom-0 w-8 bg-white opacity-30 blur-[2px]"></div>
+</div>
+</div>
+<!-- Main Content Canvas (Transactional - No Shell Nav) -->
+<main class="flex-grow flex flex-col items-center pt-12 pb-24 px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto">
+<!-- Header -->
+<header class="w-full max-w-4xl mb-12 text-center md:text-left mt-8">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-primary uppercase mb-4">STARTER ACTIVITIES</h1>
+<p class="font-body-lg text-on-surface-variant max-w-2xl">Select your initial routines to begin tracking XP. You can customize these later or add new ones at any time.</p>
+</header>
+<!-- Bento Grid Activity Selection -->
+<div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Category: Development (Large Card) -->
+<div class="md:col-span-12 lg:col-span-8 bg-[#1A1A1A] border border-[#262626] p-6 flex flex-col justify-between">
+<div class="flex justify-between items-center border-b border-surface-variant pb-4 mb-4">
+<div class="flex items-center gap-3 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">terminal</span>
+<h2 class="font-label-caps text-label-caps">DEVELOPMENT</h2>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant">3 TEMPLATES</span>
+</div>
+<div class="space-y-3 flex-grow">
+<!-- Activity 1 -->
+<button class="activity-card w-full flex items-center justify-between p-4 bg-surface border border-surface-variant text-left group selected">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary border border-primary-container glow-active">
+<span class="material-symbols-outlined text-xl">code</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface uppercase mb-1">Focused Coding Session</h3>
+<p class="font-body-md text-on-surface-variant">Deep work without interruptions.</p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="font-stat-value text-[24px] text-primary-container leading-none">+25 XP</span>
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</button>
+<!-- Activity 2 -->
+<button class="activity-card w-full flex items-center justify-between p-4 bg-surface border border-surface-variant text-left group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl">bug_report</span>
+</div>
+<div>
+<h3 class="font-headline-md text-[20px] text-on-surface uppercase mb-1">Resolve Critical Bug</h3>
+<p class="font-body-md text-on-surface-variant">Squash major issues.</p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="font-stat-value text-[20px] text-on-surface leading-none">+15 XP</span>
+<span class="material-symbols-outlined text-surface-variant group-hover:text-outline transition-colors">star</span>
+</div>
+</button>
+<!-- Activity 3 -->
+<button class="activity-card w-full flex items-center justify-between p-4 bg-surface border border-surface-variant text-left group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl">menu_book</span>
+</div>
+<div>
+<h3 class="font-headline-md text-[20px] text-on-surface uppercase mb-1">Learn New Framework</h3>
+<p class="font-body-md text-on-surface-variant">1 hour study block.</p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="font-stat-value text-[20px] text-on-surface leading-none">+20 XP</span>
+<span class="material-symbols-outlined text-surface-variant group-hover:text-outline transition-colors">star</span>
+</div>
+</button>
+</div>
+</div>
+<!-- Category: Fitness (Tall Side Card) -->
+<div class="md:col-span-6 lg:col-span-4 bg-[#1A1A1A] border border-[#262626] p-6 flex flex-col h-full">
+<div class="flex justify-between items-center border-b border-surface-variant pb-4 mb-4">
+<div class="flex items-center gap-3 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">fitness_center</span>
+<h2 class="font-label-caps text-label-caps">FITNESS</h2>
+</div>
+</div>
+<div class="space-y-3 flex-grow flex flex-col justify-center">
+<!-- Activity 4 -->
+<button class="activity-card w-full flex items-center justify-between p-4 bg-surface border border-surface-variant text-left group selected">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary border border-primary-container glow-active">
+<span class="material-symbols-outlined text-xl">directions_run</span>
+</div>
+<div>
+<h3 class="font-headline-md text-[20px] text-on-surface uppercase mb-1 leading-tight">Complete a Workout</h3>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2 shrink-0">
+<span class="font-stat-value text-[24px] text-primary-container leading-none">+25 XP</span>
+<span class="material-symbols-outlined text-primary-container text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</button>
+<!-- Activity 5 -->
+<button class="activity-card w-full flex items-center justify-between p-4 bg-surface border border-surface-variant text-left group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl">self_improvement</span>
+</div>
+<div>
+<h3 class="font-headline-md text-[20px] text-on-surface uppercase mb-1 leading-tight">Stretching Routine</h3>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2 shrink-0">
+<span class="font-stat-value text-[20px] text-on-surface leading-none">+10 XP</span>
+<span class="material-symbols-outlined text-surface-variant text-sm">star</span>
+</div>
+</button>
+</div>
+<div class="mt-4 pt-4 border-t border-surface-variant relative overflow-hidden h-24">
+<img class="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-luminosity" data-alt="Abstract dark metallic background with glowing orange digital lines and grids, resembling high-end fitness tracking equipment interface, dramatic lighting, obsidian and gold color palette, high contrast, engineered feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1oBE7JSQQO23mZVDjx2LcUjmYMiJaV2R2X0Np81bmko6Hqp8qA2gAfKlfmLT-PhzaNnlKkLkJqzhLcL9Eq7FUsJkg4F2bU8pojY-H9_9kiD-sY2s-ScPpS8Rplj1dpaPQq9oZ0oUnTK5P9vv-LyQodtftT6Qhfo7-Espyh4lRizR2ug311WzNxawj-zZD3SMD9cTKA5pOJG2VDpWrwX9CitGm0huwV4fSGDjffon-of9GbtX2QRA">
+<div class="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] to-transparent"></div>
+<div class="relative z-10 flex flex-col justify-end h-full">
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-1">TOTAL SELECTED POTENTIAL</span>
+<span class="font-stat-value text-[32px] text-primary leading-none">50 XP / DAY</span>
+</div>
+</div>
+</div>
+<!-- Custom Entry Prompt -->
+<div class="md:col-span-6 lg:col-span-12 border border-dashed border-outline-variant p-6 flex items-center justify-center bg-surface-container-lowest hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="text-center flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-3xl text-on-surface-variant group-hover:text-primary transition-colors">add</span>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-colors tracking-widest">CREATE CUSTOM ACTIVITY</h3>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Action Bar (Fixed) -->
+<div class="fixed bottom-0 w-full bg-[#131313] border-t border-[#262626] p-4 px-margin-mobile md:px-margin-desktop z-50 flex justify-between items-center h-20 md:h-24">
+<div class="w-full max-w-4xl mx-auto flex justify-between items-center">
+<button class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface transition-colors py-3 px-6 uppercase tracking-widest">
+                SKIP
+            </button>
+<div class="flex items-center gap-4">
+<span class="font-label-caps text-label-caps text-on-surface-variant hidden md:inline-block">2 ACTIVITIES SELECTED</span>
+<button class="bg-primary-container text-on-primary font-label-caps text-label-caps py-4 px-10 uppercase tracking-widest active:scale-95 transition-transform hover:brightness-110">
+                    FINALIZE SETUP
+                </button>
+</div>
+</div>
+</div>
+<script>
+        // Simple toggle script for demo purposes
+        document.querySelectorAll('.activity-card').forEach(card => {
+            card.addEventListener('click', () => {
+                card.classList.toggle('selected');
+                const star = card.querySelector('span:last-child');
+                const xp = card.querySelector('.font-stat-value');
+                const iconContainer = card.querySelector('.rounded-full');
+                
+                if (card.classList.contains('selected')) {
+                    star.style.fontVariationSettings = "'FILL' 1";
+                    star.classList.replace('text-surface-variant', 'text-primary-container');
+                    star.classList.remove('group-hover:text-outline');
+                    
+                    xp.classList.replace('text-on-surface', 'text-primary-container');
+                    xp.classList.replace('text-[20px]', 'text-[24px]');
+                    
+                    iconContainer.classList.replace('text-on-surface-variant', 'text-primary');
+                    iconContainer.classList.remove('group-hover:text-primary');
+                    iconContainer.classList.add('border', 'border-primary-container', 'glow-active');
+                } else {
+                    star.style.fontVariationSettings = "'FILL' 0";
+                    star.classList.replace('text-primary-container', 'text-surface-variant');
+                    star.classList.add('group-hover:text-outline');
+                    
+                    xp.classList.replace('text-primary-container', 'text-on-surface');
+                    xp.classList.replace('text-[24px]', 'text-[20px]');
+                    
+                    iconContainer.classList.replace('text-primary', 'text-on-surface-variant');
+                    iconContainer.classList.add('group-hover:text-primary');
+                    iconContainer.classList.remove('border', 'border-primary-container', 'glow-active');
+                }
+            });
+        });
+    </script>
+</body></html>

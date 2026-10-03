@@ -1,0 +1,375 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Settings - System Terminal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "surface": "#131313",
+                "secondary": "#c6c6c7",
+                "on-secondary-fixed": "#1a1c1c",
+                "on-secondary": "#2f3131",
+                "on-tertiary-fixed-variant": "#474746",
+                "on-background": "#e5e2e1",
+                "primary-container": "#ffb000",
+                "tertiary-fixed": "#e4e2e1",
+                "on-secondary-container": "#b4b5b5",
+                "inverse-on-surface": "#313030",
+                "on-primary-container": "#6a4700",
+                "primary-fixed": "#ffddaf",
+                "surface-container-highest": "#353534",
+                "surface-variant": "#353534",
+                "inverse-primary": "#805600",
+                "on-error-container": "#ffdad6",
+                "error-container": "#93000a",
+                "on-primary": "#432c00",
+                "surface-tint": "#ffba43",
+                "on-surface": "#e5e2e1",
+                "background": "#131313",
+                "secondary-fixed": "#e2e2e2",
+                "outline-variant": "#524533",
+                "secondary-fixed-dim": "#c6c6c7",
+                "secondary-container": "#454747",
+                "inverse-surface": "#e5e2e1",
+                "on-secondary-fixed-variant": "#454747",
+                "surface-container": "#201f1f",
+                "primary-fixed-dim": "#ffba43",
+                "tertiary-fixed-dim": "#c8c6c5",
+                "surface-container-low": "#1c1b1b",
+                "surface-container-high": "#2a2a2a",
+                "primary": "#ffd597",
+                "surface-bright": "#3a3939",
+                "on-tertiary-fixed": "#1b1c1c",
+                "on-primary-fixed": "#281800",
+                "on-tertiary": "#303030",
+                "error": "#ffb4ab",
+                "on-primary-fixed-variant": "#614000",
+                "tertiary": "#dddbda",
+                "outline": "#9f8e78",
+                "on-surface-variant": "#d7c4ac",
+                "tertiary-container": "#c1bfbf",
+                "surface-dim": "#131313",
+                "surface-container-lowest": "#0e0e0e",
+                "on-error": "#690005",
+                "on-tertiary-container": "#4e4e4e"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "margin-desktop": "64px",
+                "container-max": "1440px",
+                "gutter": "16px",
+                "unit": "4px",
+                "margin-mobile": "20px"
+        },
+        "fontFamily": {
+                "headline-md": [
+                        "Anton"
+                ],
+                "headline-lg-mobile": [
+                        "Anton"
+                ],
+                "label-caps": [
+                        "JetBrains Mono"
+                ],
+                "body-md": [
+                        "Archivo Narrow"
+                ],
+                "stat-value": [
+                        "Anton"
+                ],
+                "headline-xl": [
+                        "Anton"
+                ],
+                "body-lg": [
+                        "Archivo Narrow"
+                ],
+                "headline-lg": [
+                        "Anton"
+                ]
+        },
+        "fontSize": {
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "28px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "32px",
+                        {
+                                "lineHeight": "32px",
+                                "letterSpacing": "0.02em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-caps": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.15em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "stat-value": [
+                        "40px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "0.02em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-xl": [
+                        "72px",
+                        {
+                                "lineHeight": "72px",
+                                "letterSpacing": "0.02em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "26px",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "headline-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "48px",
+                                "letterSpacing": "0.02em",
+                                "fontWeight": "400"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            /* Subtle grid texture overlay */
+            background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        /* Toggle Switch Styling */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #ffba43;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #ffba43;
+        }
+        .toggle-checkbox:checked + .toggle-label:after {
+            transform: translateX(100%);
+            border-color: #131313;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col pb-24 md:pb-0">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface border-b border-surface-variant dark:border-surface-variant flex justify-between items-center w-full px-margin-mobile py-4 h-16 sticky top-0 z-40">
+<div class="flex items-center gap-gutter w-full">
+<button class="text-on-surface-variant dark:text-on-surface-variant hover:opacity-80 transition-opacity"><span class="material-symbols-outlined text-headline-md font-headline-md text-primary">arrow_back</span></button>
+<h1 class="text-headline-md font-headline-md text-primary dark:text-primary">Settings</h1>
+</div>
+<!-- Intentionally leaving right side empty for balance or future actions -->
+</header>
+<main class="flex-grow flex flex-col px-margin-mobile py-8 max-w-3xl mx-auto w-full gap-8">
+<!-- Profile & Emblem Section -->
+<section class="flex flex-col gap-4 items-center text-center">
+<div class="relative group cursor-pointer">
+<div class="absolute inset-0 bg-primary-fixed-dim/20 rounded-full blur-xl opacity-50 group-hover:opacity-80 transition-opacity"></div>
+<img alt="User Avatar" class="w-32 h-32 rounded-full border-2 border-surface-container-high relative z-10 object-cover" data-alt="A highly detailed avatar portrait of a sci-fi cyberpunk character with subtle glowing neon accents, representing a user profile picture. High contrast lighting, futuristic minimalist background, sharp focus, cinematic quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGojnP1IMlOqf2m2C61ZedgC6SgG_hPLLK8gym44PakSc9dLOfFoYxOyBxsDj7e2JsajSnR15zkfrJGnLQSHDpGjLyVBk7ESjXchHHc81Ra0UXRP21O_ChChHVga-OeDt_AXYeszNu3uihRrvq_UeTxMWaAHMNSYutkDdKv9Xr2DRm-5U9atMKwNYCx96z5HkL5aubRemsKSpPAMZXXxj1p9HqniC8BPltE99PClZ0Dv2VXAxyqtk">
+<div class="absolute bottom-0 right-0 bg-surface-container-high p-2 rounded border border-surface-variant z-20 text-primary-fixed-dim shadow-lg">
+<span class="material-symbols-outlined text-body-md">edit</span>
+</div>
+</div>
+<div>
+<h2 class="text-headline-lg font-headline-lg text-primary">Alex Mercer</h2>
+<p class="text-body-md font-body-md text-on-surface-variant">Level 42 Operative</p>
+</div>
+<button class="bg-surface-container-high border border-surface-variant text-primary px-6 py-2 rounded text-body-md font-body-md hover:bg-surface-variant transition-colors mt-2">
+                Edit Profile
+            </button>
+</section>
+<!-- Active Categories -->
+<section class="bg-surface-container border border-surface-container-high rounded overflow-hidden">
+<div class="p-4 border-b border-surface-container-high bg-surface-container-low">
+<h3 class="text-headline-md font-headline-md text-primary">Active Categories</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mt-1">Manage which skill trees appear on your dashboard.</p>
+</div>
+<div class="divide-y divide-surface-container-high">
+<!-- Category Item 1 -->
+<div class="flex items-center justify-between p-4">
+<div class="flex items-center gap-gutter">
+<div class="w-10 h-10 rounded bg-primary/10 flex items-center justify-center text-primary border border-primary/30">
+<span class="material-symbols-outlined">school</span>
+</div>
+<div>
+<p class="text-body-lg font-body-lg text-primary">Intelligence</p>
+<p class="text-body-md font-body-md text-on-surface-variant">Learning &amp; Knowledge</p>
+</div>
+</div>
+<!-- Toggle -->
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded bg-white border-4 appearance-none cursor-pointer z-10 opacity-0" id="toggle1" name="toggle" type="checkbox">
+<label class="toggle-label block overflow-hidden h-6 rounded bg-surface-variant cursor-pointer relative before:absolute before:bg-white before:w-5 before:h-5 before:rounded before:top-[2px] before:left-[2px] before:transition-transform before:duration-300 before:translate-x-5" for="toggle1" style="background-color: rgb(255, 186, 67);"></label>
+</div>
+</div>
+<!-- Category Item 2 -->
+<div class="flex items-center justify-between p-4">
+<div class="flex items-center gap-gutter">
+<div class="w-10 h-10 rounded bg-primary/10 flex items-center justify-center text-primary border border-primary/30">
+<span class="material-symbols-outlined">fitness_center</span>
+</div>
+<div>
+<p class="text-body-lg font-body-lg text-primary">Strength</p>
+<p class="text-body-md font-body-md text-on-surface-variant">Physical Fitness</p>
+</div>
+</div>
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded bg-white border-4 appearance-none cursor-pointer z-10 opacity-0" id="toggle2" name="toggle" type="checkbox">
+<label class="toggle-label block overflow-hidden h-6 rounded bg-surface-variant cursor-pointer relative before:absolute before:bg-white before:w-5 before:h-5 before:rounded before:top-[2px] before:left-[2px] before:transition-transform before:duration-300 before:translate-x-5" for="toggle2" style="background-color: rgb(255, 186, 67);"></label>
+</div>
+</div>
+</div>
+</section>
+<!-- Preferences Section (Accessibility & Appearance) -->
+<section class="bg-surface-container border border-surface-container-high rounded overflow-hidden">
+<div class="p-4 border-b border-surface-container-high bg-surface-container-low">
+<h3 class="text-headline-md font-headline-md text-primary">System Preferences</h3>
+</div>
+<div class="divide-y divide-surface-container-high">
+<div class="flex items-center justify-between p-4 hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="flex items-center gap-gutter">
+<span class="material-symbols-outlined text-on-surface-variant">dark_mode</span>
+<p class="text-body-lg font-body-lg text-primary">Appearance</p>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="text-body-md font-body-md">Dark Mode</span>
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-4">
+<div class="flex items-center gap-gutter">
+<span class="material-symbols-outlined text-on-surface-variant">animation</span>
+<div>
+<p class="text-body-lg font-body-lg text-primary">Reduced Motion</p>
+<p class="text-body-md font-body-md text-on-surface-variant">Minimize UI animations</p>
+</div>
+</div>
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-6 h-6 rounded bg-white border-4 appearance-none cursor-pointer z-10 opacity-0" id="toggle3" name="toggle" type="checkbox">
+<label class="toggle-label block overflow-hidden h-6 rounded bg-surface-variant cursor-pointer relative before:absolute before:bg-white before:w-5 before:h-5 before:rounded before:top-[2px] before:left-[2px] before:transition-transform before:duration-300 before:translate-x-0" for="toggle3" style="background-color: rgb(53, 53, 52);"></label>
+</div>
+</div>
+<div class="flex items-center justify-between p-4">
+<div class="flex items-center gap-gutter">
+<span class="material-symbols-outlined text-on-surface-variant">vibration</span>
+<div>
+<p class="text-body-lg font-body-lg text-primary">Haptics</p>
+<p class="text-body-md font-body-md text-on-surface-variant">Vibration feedback</p>
+</div>
+</div>
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded bg-white border-4 appearance-none cursor-pointer z-10 opacity-0" id="toggle4" name="toggle" type="checkbox">
+<label class="toggle-label block overflow-hidden h-6 rounded bg-surface-variant cursor-pointer relative before:absolute before:bg-white before:w-5 before:h-5 before:rounded before:top-[2px] before:left-[2px] before:transition-transform before:duration-300 before:translate-x-5" for="toggle4" style="background-color: rgb(255, 186, 67);"></label>
+</div>
+</div>
+</div>
+</section>
+<!-- Data & Security Section -->
+<section class="bg-surface-container border border-surface-container-high rounded overflow-hidden">
+<div class="p-4 border-b border-surface-container-high bg-surface-container-low">
+<h3 class="text-headline-md font-headline-md text-primary">Data &amp; Security</h3>
+</div>
+<div class="divide-y divide-surface-container-high">
+<div class="flex items-center justify-between p-4 hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="flex items-center gap-gutter">
+<span class="material-symbols-outlined text-on-surface-variant">shield</span>
+<p class="text-body-lg font-body-lg text-primary">Privacy Policy</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+<div class="flex items-center justify-between p-4 hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="flex items-center gap-gutter">
+<span class="material-symbols-outlined text-on-surface-variant">download</span>
+<p class="text-body-lg font-body-lg text-primary">Export User Data</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+</div>
+</section>
+<!-- Account Actions -->
+<section class="flex flex-col gap-4 mt-4">
+<button class="w-full bg-surface-container-high border border-surface-variant text-primary py-4 rounded text-body-lg font-body-lg hover:bg-surface-variant transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">logout</span>
+                Sign Out
+            </button>
+<button class="w-full bg-transparent border border-error/30 text-error py-4 rounded text-body-lg font-body-lg hover:bg-error/10 transition-colors mt-2">
+                Delete Account
+            </button>
+</section>
+</main>
+<!-- Navigation Suppressed: This is a task-focused "Settings" screen representing a temporary departure from main nav flow -->
+<script>
+        // Inline script for checkbox toggle visual state handling
+        document.querySelectorAll('.toggle-checkbox').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const label = this.nextElementSibling;
+                if(this.checked) {
+                    label.style.backgroundColor = '#ffba43';
+                    label.classList.remove('before:translate-x-0');
+                    label.classList.add('before:translate-x-5');
+                } else {
+                    label.style.backgroundColor = '#353534';
+                    label.classList.remove('before:translate-x-5');
+                    label.classList.add('before:translate-x-0');
+                }
+            });
+            // Init state
+            const label = checkbox.nextElementSibling;
+            if(checkbox.checked) {
+                label.style.backgroundColor = '#ffba43';
+                label.classList.add('before:translate-x-5');
+            } else {
+                 label.style.backgroundColor = '#353534';
+                 label.classList.add('before:translate-x-0');
+            }
+        });
+    </script>
+
+
+</body></html>

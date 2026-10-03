@@ -1,0 +1,438 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport">
+<title>Log Activity</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "surface": "#131313",
+                "secondary": "#c6c6c7",
+                "on-secondary-fixed": "#1a1c1c",
+                "on-secondary": "#2f3131",
+                "on-tertiary-fixed-variant": "#474746",
+                "on-background": "#e5e2e1",
+                "primary-container": "#ffb000",
+                "tertiary-fixed": "#e4e2e1",
+                "on-secondary-container": "#b4b5b5",
+                "inverse-on-surface": "#313030",
+                "on-primary-container": "#6a4700",
+                "primary-fixed": "#ffddaf",
+                "surface-container-highest": "#353534",
+                "surface-variant": "#353534",
+                "inverse-primary": "#805600",
+                "on-error-container": "#ffdad6",
+                "error-container": "#93000a",
+                "on-primary": "#432c00",
+                "surface-tint": "#ffba43",
+                "on-surface": "#e5e2e1",
+                "background": "#131313",
+                "secondary-fixed": "#e2e2e2",
+                "outline-variant": "#524533",
+                "secondary-fixed-dim": "#c6c6c7",
+                "secondary-container": "#454747",
+                "inverse-surface": "#e5e2e1",
+                "on-secondary-fixed-variant": "#454747",
+                "surface-container": "#201f1f",
+                "primary-fixed-dim": "#ffba43",
+                "tertiary-fixed-dim": "#c8c6c5",
+                "surface-container-low": "#1c1b1b",
+                "surface-container-high": "#2a2a2a",
+                "primary": "#ffd597",
+                "surface-bright": "#3a3939",
+                "on-tertiary-fixed": "#1b1c1c",
+                "on-primary-fixed": "#281800",
+                "on-tertiary": "#303030",
+                "error": "#ffb4ab",
+                "on-primary-fixed-variant": "#614000",
+                "tertiary": "#dddbda",
+                "outline": "#9f8e78",
+                "on-surface-variant": "#d7c4ac",
+                "tertiary-container": "#c1bfbf",
+                "surface-dim": "#131313",
+                "surface-container-lowest": "#0e0e0e",
+                "on-error": "#690005",
+                "on-tertiary-container": "#4e4e4e"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "margin-desktop": "64px",
+                "container-max": "1440px",
+                "gutter": "16px",
+                "unit": "4px",
+                "margin-mobile": "20px"
+        },
+        "fontFamily": {
+                "headline-md": [
+                        "Anton"
+                ],
+                "headline-lg-mobile": [
+                        "Anton"
+                ],
+                "label-caps": [
+                        "JetBrains Mono"
+                ],
+                "body-md": [
+                        "Archivo Narrow"
+                ],
+                "stat-value": [
+                        "Anton"
+                ],
+                "headline-xl": [
+                        "Anton"
+                ],
+                "body-lg": [
+                        "Archivo Narrow"
+                ],
+                "headline-lg": [
+                        "Anton"
+                ]
+        },
+        "fontSize": {
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "28px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "32px",
+                        {
+                                "lineHeight": "32px",
+                                "letterSpacing": "0.02em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-caps": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.15em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "stat-value": [
+                        "40px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "0.02em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-xl": [
+                        "72px",
+                        {
+                                "lineHeight": "72px",
+                                "letterSpacing": "0.02em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "26px",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "headline-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "48px",
+                                "letterSpacing": "0.02em",
+                                "fontWeight": "400"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        /* Custom Scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #353534;
+            border-radius: 0.25rem;
+        }
+        
+        /* Slide up animation for bottom sheet */
+        @keyframes slideUp {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+        .animate-slide-up {
+            animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Ambient Glow Behind Container */
+        .ambient-glow::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 40px;
+            background: rgba(255, 176, 0, 0.05);
+            filter: blur(20px);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased h-screen overflow-hidden relative">
+<!-- Main Content Canvas (simulating underlying app view) -->
+<main class="relative z-10 w-full h-full flex flex-col items-center justify-center pt-16 pb-20 px-margin-mobile opacity-30 pointer-events-none">
+<h1 class="font-headline-md text-headline-md text-on-surface-variant mb-unit">Dashboard</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Tap to log activity...</p>
+</main>
+<!-- Overlay Background (Dimming underlying content) -->
+<div class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 transition-opacity" id="overlay" onclick="closeSheet()"></div>
+<!-- Bottom Sheet Container -->
+<div class="fixed bottom-0 w-full z-50 bg-surface-container rounded-t-DEFAULT border-t border-surface-container-highest shadow-lg animate-slide-up pb-safe flex flex-col max-h-[795px] ambient-glow" id="bottomSheet">
+<!-- Drag Handle -->
+<div class="w-full flex justify-center pt-unit pb-2 cursor-grab active:cursor-grabbing" id="dragHandle">
+<div class="w-12 h-1 bg-surface-variant rounded-full"></div>
+</div>
+<!-- Sheet Header (Initial View) -->
+<div class="px-margin-mobile pb-unit flex justify-between items-center" id="sheetHeader">
+<h2 class="font-headline-md text-headline-md text-primary">Log Activity</h2>
+<!-- Offline Sync Indicator -->
+<div class="flex items-center gap-1 text-on-surface-variant bg-surface-container-high py-1 px-2 rounded-DEFAULT border border-surface-container-highest">
+<span class="material-symbols-outlined text-[14px]">cloud_off</span>
+<span class="font-label-caps text-label-caps text-[10px]">Pending sync</span>
+</div>
+</div>
+<!-- Initial View Content: Search & Filters -->
+<div class="px-margin-mobile pb-gutter" id="initialViewFilters">
+<!-- Search Bar -->
+<div class="relative w-full mb-gutter">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-high border border-surface-container-highest text-on-surface font-body-md text-body-md rounded-DEFAULT pl-10 pr-4 py-2 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors placeholder:text-on-surface-variant/50" placeholder="Search templates..." type="text">
+</div>
+<!-- Category Filters (Horizontal Scroll) -->
+<div class="flex gap-2 overflow-x-auto pb-2 -mx-margin-mobile px-margin-mobile scroll-smooth">
+<!-- 'All' Chip -->
+<button class="flex-shrink-0 px-3 py-1.5 rounded-DEFAULT border border-primary text-primary font-label-caps text-label-caps bg-surface-container-high transition-colors">ALL</button>
+<!-- Fitness Chip -->
+<button class="flex-shrink-0 px-3 py-1.5 rounded-DEFAULT border border-surface-container-highest text-on-surface-variant font-label-caps text-label-caps hover:bg-surface-container-high transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">directions_run</span>
+                    FITNESS
+                </button>
+<!-- Knowledge Chip -->
+<button class="flex-shrink-0 px-3 py-1.5 rounded-DEFAULT border border-surface-container-highest text-on-surface-variant font-label-caps text-label-caps hover:bg-surface-container-high transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">menu_book</span>
+                    KNOWLEDGE
+                </button>
+<!-- Creativity Chip -->
+<button class="flex-shrink-0 px-3 py-1.5 rounded-DEFAULT border border-surface-container-highest text-on-surface-variant font-label-caps text-label-caps hover:bg-surface-container-high transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">palette</span>
+                    CREATIVE
+                </button>
+</div>
+</div>
+<!-- Initial View Content: Template List (Scrollable Area) -->
+<div class="flex-1 overflow-y-auto px-margin-mobile pb-margin-desktop space-y-gutter" id="templateList">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-2">RECENT TEMPLATES</h3>
+<!-- Template Item 1 (Fitness) -->
+<button class="w-full flex items-center p-3 rounded-DEFAULT bg-surface-container-high border border-surface-container-highest hover:border-primary/30 hover:bg-surface-container-highest transition-all group text-left" onclick="showConfirmation('Morning Run', 'fitness', '+60 XP')">
+<div class="w-10 h-10 rounded-DEFAULT bg-primary/10 border border-primary/20 flex items-center justify-center mr-3 group-hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-primary">directions_run</span>
+</div>
+<div class="flex-1">
+<div class="font-label-caps text-label-caps text-primary mb-0.5">FITNESS · ENDURANCE</div>
+<div class="font-body-lg text-body-lg text-on-surface font-medium">Morning Run</div>
+</div>
+<div class="font-stat-value text-stat-value text-primary-fixed text-lg">+60 XP</div>
+</button>
+<!-- Template Item 2 (Knowledge) -->
+<button class="w-full flex items-center p-3 rounded-DEFAULT bg-surface-container-high border border-surface-container-highest hover:border-primary/30 hover:bg-surface-container-highest transition-all group text-left" onclick="showConfirmation('Read 30 Pages', 'knowledge', '+40 XP')">
+<div class="w-10 h-10 rounded-DEFAULT bg-primary/10 border border-primary/20 flex items-center justify-center mr-3 group-hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-primary">menu_book</span>
+</div>
+<div class="flex-1">
+<div class="font-label-caps text-label-caps text-primary mb-0.5">KNOWLEDGE · FOCUS</div>
+<div class="font-body-lg text-body-lg text-on-surface font-medium">Read 30 Pages</div>
+</div>
+<div class="font-stat-value text-stat-value text-primary-fixed text-lg">+40 XP</div>
+</button>
+<!-- Template Item 3 (Creative) -->
+<button class="w-full flex items-center p-3 rounded-DEFAULT bg-surface-container-high border border-surface-container-highest hover:border-primary/30 hover:bg-surface-container-highest transition-all group text-left" onclick="showConfirmation('UI Design Session', 'creative', '+120 XP')">
+<div class="w-10 h-10 rounded-DEFAULT bg-primary/10 border border-primary/20 flex items-center justify-center mr-3 group-hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-primary">palette</span>
+</div>
+<div class="flex-1">
+<div class="font-label-caps text-label-caps text-primary mb-0.5">CREATIVE · DESIGN</div>
+<div class="font-body-lg text-body-lg text-on-surface font-medium">UI Design Session</div>
+</div>
+<div class="font-stat-value text-stat-value text-primary-fixed text-lg">+120 XP</div>
+</button>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mt-4 mb-2">SUGGESTED</h3>
+<!-- Template Item 4 (Finance) -->
+<button class="w-full flex items-center p-3 rounded-DEFAULT bg-surface-container-high border border-surface-container-highest hover:border-primary/30 hover:bg-surface-container-highest transition-all group text-left" onclick="showConfirmation('Budget Review', 'finance', '+30 XP')">
+<div class="w-10 h-10 rounded-DEFAULT bg-primary/10 border border-primary/20 flex items-center justify-center mr-3 group-hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-primary">account_balance_wallet</span>
+</div>
+<div class="flex-1">
+<div class="font-label-caps text-label-caps text-primary mb-0.5">FINANCE · PLANNING</div>
+<div class="font-body-lg text-body-lg text-on-surface font-medium">Budget Review</div>
+</div>
+<div class="font-stat-value text-stat-value text-primary-fixed text-lg">+30 XP</div>
+</button>
+</div>
+<!-- Confirmation State (Hidden initially) -->
+<div class="hidden flex-col px-margin-mobile pb-margin-desktop h-full" id="confirmationState">
+<!-- Context Header -->
+<div class="flex items-center gap-3 mb-margin-desktop pt-2">
+<button class="text-on-surface-variant hover:text-primary transition-colors p-1" onclick="hideConfirmation()">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div class="flex-1">
+<div class="font-label-caps text-label-caps text-on-surface-variant mb-0.5" id="confirmCategory">FITNESS · ENDURANCE</div>
+<h2 class="font-headline-md text-headline-md text-primary" id="confirmTitle">Morning Run</h2>
+</div>
+<!-- XP Tier Indicator (Decorative) -->
+<div class="w-8 h-8 rounded-DEFAULT border border-primary-fixed/30 bg-primary-fixed/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-fixed text-sm">military_tech</span>
+</div>
+</div>
+<!-- Form Details -->
+<div class="space-y-gutter flex-1">
+<!-- Time Logged -->
+<div class="bg-surface-container-high rounded-DEFAULT p-3 border border-surface-container-highest flex items-center justify-between">
+<div class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">schedule</span>
+<span class="font-body-md text-body-md">Time</span>
+</div>
+<div class="font-body-lg text-body-lg text-primary">Just Now</div>
+</div>
+<!-- Duration (Optional) -->
+<div class="bg-surface-container-high rounded-DEFAULT p-3 border border-surface-container-highest flex items-center justify-between">
+<div class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">timer</span>
+<span class="font-body-md text-body-md">Duration (opt)</span>
+</div>
+<input class="w-24 bg-transparent border-b border-surface-container-highest text-right text-primary font-body-lg text-body-lg focus:outline-none focus:border-primary placeholder:text-on-surface-variant/50" placeholder="e.g. 45m" type="text">
+</div>
+<!-- Notes (Optional) -->
+<div class="bg-surface-container-high rounded-DEFAULT p-3 border border-surface-container-highest">
+<div class="flex items-center gap-2 text-on-surface mb-2">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">notes</span>
+<span class="font-body-md text-body-md">Notes (opt)</span>
+</div>
+<textarea class="w-full bg-transparent border-none p-0 text-primary font-body-md text-body-md focus:ring-0 resize-none h-16 placeholder:text-on-surface-variant/50" placeholder="Add context to this log..."></textarea>
+</div>
+</div>
+<!-- Primary Action Button -->
+<button class="w-full bg-primary-container text-on-primary-container font-headline-md text-headline-md py-4 rounded-DEFAULT mt-margin-desktop flex justify-center items-center gap-2 hover:bg-primary transition-colors active:scale-[0.98] shadow-[0_0_15px_rgba(255,176,0,0.3)] border border-primary-container">
+<span class="material-symbols-outlined">bolt</span>
+<span id="confirmBtnText">Claim +60 XP</span>
+</button>
+</div>
+</div>
+<!-- Minimal JS for UI Interaction -->
+<script>
+        const bottomSheet = document.getElementById('bottomSheet');
+        const overlay = document.getElementById('overlay');
+        
+        // Views
+        const initialFilters = document.getElementById('initialViewFilters');
+        const templateList = document.getElementById('templateList');
+        const sheetHeader = document.getElementById('sheetHeader');
+        const confirmationState = document.getElementById('confirmationState');
+        const dragHandle = document.getElementById('dragHandle');
+
+        // Dynamic Elements in Confirmation
+        const confirmTitle = document.getElementById('confirmTitle');
+        const confirmCategory = document.getElementById('confirmCategory');
+        const confirmBtnText = document.getElementById('confirmBtnText');
+
+        function showConfirmation(title, categoryId, xp) {
+            // Update Text
+            confirmTitle.innerText = title;
+            confirmBtnText.innerText = `Claim ${xp}`;
+            
+            // Determine styling based on category (mock logic for demo)
+            let catString = "ACTIVITY";
+            let colorClass = "text-on-surface-variant";
+            if(categoryId === 'fitness') { catString = "FITNESS · ENDURANCE"; colorClass = "text-primary"; }
+            if(categoryId === 'knowledge') { catString = "KNOWLEDGE · FOCUS"; colorClass = "text-primary"; }
+            if(categoryId === 'creative') { catString = "CREATIVE · DESIGN"; colorClass = "text-primary"; }
+            if(categoryId === 'finance') { catString = "FINANCE · PLANNING"; colorClass = "text-primary"; }
+            
+            confirmCategory.innerText = catString;
+            confirmCategory.className = `font-label-caps text-label-caps mb-0.5 ${colorClass}`;
+
+            // Swap views
+            initialFilters.classList.add('hidden');
+            templateList.classList.add('hidden');
+            sheetHeader.classList.add('hidden');
+            dragHandle.classList.add('hidden'); // Hide drag on sub-view for simpler UX
+            
+            confirmationState.classList.remove('hidden');
+            confirmationState.classList.add('flex');
+            
+            // Adjust height if necessary
+            bottomSheet.style.height = 'auto';
+        }
+
+        function hideConfirmation() {
+            // Swap back
+            confirmationState.classList.add('hidden');
+            confirmationState.classList.remove('flex');
+            
+            initialFilters.classList.remove('hidden');
+            templateList.classList.remove('hidden');
+            sheetHeader.classList.remove('hidden');
+            sheetHeader.classList.add('flex');
+            dragHandle.classList.remove('hidden');
+            
+            // Reset scroll
+            templateList.scrollTop = 0;
+        }
+
+        function closeSheet() {
+            bottomSheet.style.transform = 'translateY(100%)';
+            overlay.style.opacity = '0';
+            setTimeout(() => {
+                // In a real app, this would route back or close modal
+                alert('Sheet closed. (Demo reset)');
+                bottomSheet.style.transform = '';
+                overlay.style.opacity = '1';
+                hideConfirmation();
+            }, 300);
+        }
+    </script>
+</body></html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>REALLIFE XP - Log Activity Confirmation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#524533",
+                        "inverse-on-surface": "#313030",
+                        "surface": "#131313",
+                        "surface-container": "#201f1f",
+                        "on-primary-fixed-variant": "#614000",
+                        "surface-container-low": "#1c1b1b",
+                        "on-error": "#690005",
+                        "surface-container-highest": "#353534",
+                        "inverse-primary": "#805600",
+                        "surface-tint": "#ffba43",
+                        "outline": "#9f8e78",
+                        "on-secondary-container": "#b4b5b5",
+                        "primary": "#ffd597",
+                        "primary-fixed": "#ffddaf",
+                        "tertiary-fixed-dim": "#c8c6c5",
+                        "primary-fixed-dim": "#ffba43",
+                        "tertiary-container": "#c1bfbf",
+                        "primary-container": "#ffb000",
+                        "surface-container-high": "#2a2a2a",
+                        "on-tertiary-fixed-variant": "#474746",
+                        "background": "#131313",
+                        "on-primary": "#432c00",
+                        "on-primary-fixed": "#281800",
+                        "on-surface-variant": "#d7c4ac",
+                        "on-background": "#e5e2e1",
+                        "error-container": "#93000a",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "secondary-container": "#454747",
+                        "on-surface": "#e5e2e1",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "secondary": "#c6c6c7",
+                        "tertiary": "#dddbda",
+                        "tertiary-fixed": "#e4e2e1",
+                        "on-primary-container": "#6a4700",
+                        "on-tertiary": "#303030",
+                        "inverse-surface": "#e5e2e1",
+                        "secondary-fixed": "#e2e2e2",
+                        "on-tertiary-container": "#4e4e4e",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-variant": "#353534",
+                        "on-secondary-fixed-variant": "#454747",
+                        "surface-dim": "#131313",
+                        "secondary-fixed-dim": "#c6c6c7",
+                        "error": "#ffb4ab",
+                        "on-secondary": "#2f3131",
+                        "surface-bright": "#3a3939"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "margin-mobile": "20px",
+                        "container-max": "1440px",
+                        "gutter": "16px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-lg": ["Anton"],
+                        "body-lg": ["Archivo Narrow"],
+                        "headline-lg-mobile": ["Anton"],
+                        "headline-md": ["Anton"],
+                        "stat-value": ["Anton"],
+                        "headline-xl": ["Anton"],
+                        "body-md": ["Archivo Narrow"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.15em", "fontWeight": "700" }],
+                        "headline-lg": ["48px", { "lineHeight": "48px", "letterSpacing": "0.02em", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "26px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "32px", "letterSpacing": "0.02em", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "28px", "letterSpacing": "0.05em", "fontWeight": "400" }],
+                        "stat-value": ["40px", { "lineHeight": "40px", "letterSpacing": "0.02em", "fontWeight": "400" }],
+                        "headline-xl": ["72px", { "lineHeight": "72px", "letterSpacing": "0.02em", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #0A0A0A; }
+        .grid-bg {
+            background-size: 40px 40px;
+            background-image:
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+        .glow-effect {
+            box-shadow: 0 0 15px rgba(255, 176, 0, 0.6);
+        }
+        .input-border {
+            border-bottom: 1px solid #524533;
+        }
+        .input-border:focus-within {
+            border-bottom: 1px solid #ffb000;
+        }
+    </style>
+</head>
+<body class="text-on-background min-h-screen flex flex-col font-body-md grid-bg relative selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation (Canvas suppressed logic applied, keeping it minimal for confirmation flow, using JSON structure but hiding nav elements as it's a transactional screen) -->
+<header class="fixed top-0 w-full z-50 border-b border-outline-variant flex justify-between items-center h-16 px-margin-mobile md:px-margin-desktop bg-surface dark:bg-surface">
+<div class="flex items-center gap-4">
+<button aria-label="Go back" class="text-on-surface-variant hover:text-primary-fixed-dim transition-colors active:scale-95 duration-100">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary tracking-widest">REALLIFE XP</h1>
+</div>
+<div>
+<!-- Suppressed trailing for transactional flow -->
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-24 pb-32 px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto flex flex-col items-center justify-center">
+<div class="w-full max-w-md">
+<div class="mb-8 text-center">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-2">CONFIRM LOG</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Review details before claiming XP.</p>
+</div>
+<!-- Activity Details Card -->
+<div class="bg-[#1A1A1A] border border-[#262626] p-6 mb-6">
+<div class="flex justify-between items-start mb-6 pb-6 border-b border-outline-variant">
+<div>
+<span class="font-label-caps text-label-caps text-primary-container block mb-1">TEMPLATE</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">MORNING RUN (5K)</h3>
+</div>
+<div class="text-right">
+<span class="font-label-caps text-label-caps text-on-surface-variant block mb-1">TIER</span>
+<span class="font-label-caps text-label-caps text-error border border-error px-2 py-1 inline-block">CHALLENGING</span>
+</div>
+</div>
+<div class="flex justify-between items-center mb-6">
+<div>
+<span class="font-label-caps text-label-caps text-on-surface-variant block mb-1">OCCURRENCE</span>
+<span class="font-body-lg text-body-lg text-on-surface">Today, 06:30 AM</span>
+</div>
+</div>
+<!-- Note Input -->
+<div class="mt-8">
+<label class="font-label-caps text-label-caps text-on-surface-variant block mb-2" for="activity_note">OPTIONAL NOTE</label>
+<div class="input-border transition-colors duration-200">
+<input class="w-full bg-transparent border-none text-on-surface font-body-lg text-body-lg py-2 px-0 focus:ring-0 focus:outline-none placeholder:text-surface-variant" id="activity_note" placeholder="How did it feel?" type="text">
+</div>
+</div>
+</div>
+<!-- XP Reward Banner -->
+<div class="bg-[#1A1A1A] border border-[#262626] p-6 mb-8 text-center relative overflow-hidden">
+<!-- Decorative accent -->
+<div class="absolute top-0 left-0 w-1 h-full bg-primary-container"></div>
+<span class="font-label-caps text-label-caps text-primary-container block mb-2">REWARD</span>
+<div class="font-stat-value text-stat-value text-primary-container flex items-center justify-center gap-2">
+<span>+60</span>
+<span class="font-headline-md text-headline-md">XP</span>
+</div>
+</div>
+<!-- Claim Action -->
+<button class="w-full bg-primary-container text-[#000000] font-headline-md text-headline-md py-4 uppercase tracking-wider hover:bg-primary-fixed-dim transition-colors active:scale-95 duration-100 glow-effect flex items-center justify-center gap-2">
+                CLAIM +60 XP
+                <span class="material-symbols-outlined" data-icon="bolt" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</button>
+</div>
+</main>
+<!-- Navigation suppressed for transactional screen -->
+</body></html>

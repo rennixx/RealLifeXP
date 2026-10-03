@@ -1,0 +1,302 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>REALLIFE XP - Achievement Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline-variant": "#524533",
+                      "inverse-on-surface": "#313030",
+                      "surface": "#131313",
+                      "surface-container": "#201f1f",
+                      "on-primary-fixed-variant": "#614000",
+                      "surface-container-low": "#1c1b1b",
+                      "on-error": "#690005",
+                      "surface-container-highest": "#353534",
+                      "inverse-primary": "#805600",
+                      "surface-tint": "#ffba43",
+                      "outline": "#9f8e78",
+                      "on-secondary-container": "#b4b5b5",
+                      "primary": "#ffd597",
+                      "primary-fixed": "#ffddaf",
+                      "tertiary-fixed-dim": "#c8c6c5",
+                      "primary-fixed-dim": "#ffba43",
+                      "tertiary-container": "#c1bfbf",
+                      "primary-container": "#ffb000",
+                      "surface-container-high": "#2a2a2a",
+                      "on-tertiary-fixed-variant": "#474746",
+                      "background": "#131313",
+                      "on-primary": "#432c00",
+                      "on-primary-fixed": "#281800",
+                      "on-surface-variant": "#d7c4ac",
+                      "on-background": "#e5e2e1",
+                      "error-container": "#93000a",
+                      "on-error-container": "#ffdad6",
+                      "on-tertiary-fixed": "#1b1c1c",
+                      "secondary-container": "#454747",
+                      "on-surface": "#e5e2e1",
+                      "on-secondary-fixed": "#1a1c1c",
+                      "secondary": "#c6c6c7",
+                      "tertiary": "#dddbda",
+                      "tertiary-fixed": "#e4e2e1",
+                      "on-primary-container": "#6a4700",
+                      "on-tertiary": "#303030",
+                      "inverse-surface": "#e5e2e1",
+                      "secondary-fixed": "#e2e2e2",
+                      "on-tertiary-container": "#4e4e4e",
+                      "surface-container-lowest": "#0e0e0e",
+                      "surface-variant": "#353534",
+                      "on-secondary-fixed-variant": "#454747",
+                      "surface-dim": "#131313",
+                      "secondary-fixed-dim": "#c6c6c7",
+                      "error": "#ffb4ab",
+                      "on-secondary": "#2f3131",
+                      "surface-bright": "#3a3939"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit": "4px",
+                      "margin-mobile": "20px",
+                      "container-max": "1440px",
+                      "gutter": "16px",
+                      "margin-desktop": "64px"
+              },
+              "fontFamily": {
+                      "label-caps": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-lg": [
+                              "Anton"
+                      ],
+                      "body-lg": [
+                              "Archivo Narrow"
+                      ],
+                      "headline-lg-mobile": [
+                              "Anton"
+                      ],
+                      "headline-md": [
+                              "Anton"
+                      ],
+                      "stat-value": [
+                              "Anton"
+                      ],
+                      "headline-xl": [
+                              "Anton"
+                      ],
+                      "body-md": [
+                              "Archivo Narrow"
+                      ]
+              },
+              "fontSize": {
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.15em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "48px",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "26px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "28px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "stat-value": [
+                              "40px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-xl": [
+                              "72px",
+                              {
+                                      "lineHeight": "72px",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        /* Custom Glowing Effects for Solar Flare Theme */
+        .glow-primary {
+            box-shadow: 0 0 15px rgba(255, 176, 0, 0.4);
+        }
+        .glow-text-primary {
+            text-shadow: 0 0 8px rgba(255, 176, 0, 0.6);
+        }
+        
+        /* Grid background pattern */
+        .grid-bg {
+            background-image: 
+                linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        /* Scanline effect */
+        .scanline {
+            background: linear-gradient(
+                to bottom,
+                transparent 50%,
+                rgba(0, 0, 0, 0.2) 51%
+            );
+            background-size: 100% 4px;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen relative overflow-hidden flex flex-col">
+<!-- Background Effects -->
+<div class="fixed inset-0 grid-bg z-0 pointer-events-none"></div>
+<div class="fixed inset-0 scanline z-0 pointer-events-none"></div>
+<div class="fixed top-0 left-0 w-full h-1 bg-primary-container z-50"></div>
+<!-- Top Navigation (Task-focused context, simpler nav) -->
+<nav class="relative z-10 flex justify-between items-center h-16 px-margin-mobile md:px-margin-desktop w-full border-b border-surface-variant bg-surface">
+<button class="text-primary hover:text-primary-fixed-dim transition-colors flex items-center gap-2 group">
+<span class="material-symbols-outlined text-2xl group-active:scale-95 transition-transform" data-icon="arrow_back">arrow_back</span>
+<span class="font-label-caps text-label-caps hidden md:block">BACK TO AWARDS</span>
+</button>
+<div class="font-headline-md text-headline-md text-primary tracking-widest uppercase">
+            ACHIEVEMENT LOG
+        </div>
+<div class="w-8"></div> <!-- Spacer for centering -->
+</nav>
+<!-- Main Content Canvas -->
+<main class="relative z-10 flex-grow flex items-center justify-center p-margin-mobile md:p-margin-desktop overflow-y-auto">
+<!-- Detail Sheet Container -->
+<div class="w-full max-w-2xl bg-surface-container border border-surface-variant p-6 md:p-10 relative flex flex-col gap-8">
+<!-- Corner Accents -->
+<div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-primary-container"></div>
+<div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-primary-container"></div>
+<div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-primary-container"></div>
+<div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-primary-container"></div>
+<!-- Header Section: Badge & Title -->
+<header class="flex flex-col items-center text-center gap-6">
+<!-- Legendary Badge Visual -->
+<div class="relative w-40 h-40 md:w-48 md:h-48 flex items-center justify-center">
+<!-- Glow Rings -->
+<div class="absolute inset-0 border border-primary-container rounded-full opacity-20 animate-[spin_10s_linear_infinite]"></div>
+<div class="absolute inset-2 border border-primary rounded-full opacity-40 animate-[spin_15s_linear_infinite_reverse]"></div>
+<!-- Core Badge Background -->
+<div class="absolute inset-4 bg-surface-container-high rounded-full border border-primary-container glow-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-7xl md:text-8xl text-primary glow-text-primary" data-icon="hotel_class" style="font-variation-settings: 'FILL' 1;">hotel_class</span>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<!-- Rarity Tag -->
+<div class="inline-flex items-center gap-2 justify-center">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-caps text-label-caps text-primary tracking-widest">LEGENDARY RARITY</span>
+<span class="material-symbols-outlined text-primary text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<!-- Achievement Title -->
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface uppercase tracking-wider">
+                        MASTER OF DISCIPLINE
+                    </h1>
+</div>
+</header>
+<!-- Divider -->
+<hr class="border-surface-variant w-full">
+<!-- Data Section -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Description & Condition -->
+<div class="flex flex-col gap-4 md:col-span-2">
+<div class="flex flex-col gap-1">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant">DESCRIPTION</h3>
+<p class="font-body-lg text-body-lg text-on-surface">
+                            Forged in the fires of unwavering commitment. Awarded to those who demonstrate absolute control over their daily routines without failure or compromise.
+                        </p>
+</div>
+<div class="bg-surface-container-low border border-surface-variant p-4">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-2">UNLOCK CONDITION</h3>
+<p class="font-body-md text-body-md text-primary">
+                            Complete 30 consecutive days logging all daily habits before 0800 HRS.
+                        </p>
+</div>
+</div>
+<!-- Stats Grid -->
+<div class="flex flex-col gap-1 bg-surface-container-highest p-4 border border-surface-variant">
+<span class="font-label-caps text-label-caps text-on-surface-variant">UNLOCKED</span>
+<span class="font-stat-value text-stat-value text-on-surface">24 OCT</span>
+<span class="font-body-md text-body-md text-on-surface-variant">2023 - 08:04:12 GMT</span>
+</div>
+<div class="flex flex-col gap-1 bg-surface-container-highest p-4 border border-surface-variant">
+<span class="font-label-caps text-label-caps text-on-surface-variant">GLOBAL ATTAINMENT</span>
+<span class="font-stat-value text-stat-value text-primary">0.4%</span>
+<span class="font-body-md text-body-md text-on-surface-variant">OF ACTIVE OPERATIVES</span>
+</div>
+</section>
+<!-- Reward Section -->
+<section class="flex flex-col border border-primary-container p-6 relative overflow-hidden group">
+<!-- Background highlight -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-container opacity-5 rounded-full -translate-y-16 translate-x-16"></div>
+<h3 class="font-label-caps text-label-caps text-primary mb-4 z-10 flex items-center gap-2">
+<span class="material-symbols-outlined text-base" data-icon="workspace_premium">workspace_premium</span>
+                    REWARD GRANTED
+                </h3>
+<div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 z-10">
+<div class="flex flex-col gap-1">
+<span class="font-label-caps text-label-caps text-on-surface-variant">EXCLUSIVE TITLE</span>
+<span class="font-headline-md text-headline-md text-on-surface">"THE SPECIALIST"</span>
+</div>
+<button class="bg-primary-container text-on-primary font-label-caps text-label-caps px-8 py-4 uppercase tracking-widest hover:bg-primary-fixed-dim transition-colors active:scale-95 w-full md:w-auto">
+                        EQUIP TITLE
+                    </button>
+</div>
+</section>
+</div>
+</main>
+</body></html>
